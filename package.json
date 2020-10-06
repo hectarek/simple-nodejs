@@ -1,0 +1,14 @@
+{
+  "name": "simple-nodejs",
+  "version": "1.0.0",
+  "description": "this is a project where I learn the basics of node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hector Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
