@@ -33,22 +33,33 @@ const { readFile } = require('fs').promises;
 // // THIS WILL WORK, however is very new and not as recognized yet.
 // const file = await readFile('./hello.txt', 'utf8');
 
-async function hello() {
-    const file = await readFile('./hello.txt', 'utf8');
-}
+// async function hello() {
+//     const file = await readFile('./hello.txt', 'utf8');
+// }
 
-hello();
+// hello();
 
+
+// // Use the code below for synchronous code.
 const app = express();
 
-app.get('/', (req, res) => {
-    readFile('./index.html', 'utf8', (err, html) => {
-        if (err) {
-            res.status(500).send("Sorry, it don't work")
-        }
-        res.send(html);
-    })
-});
+// app.get('/', (req, res) => {
+
+//     readFile('./index.html', 'utf8', (err, html) => {
+
+//         if (err) {
+//             res.status(500).send("Sorry, it don't work");
+//         }
+
+//         res.send(html);
+//     })
+// });
+
+// Here is the async way to do this to avoid callback hell in larger apps.
+
+app.get('/', async (req, res) => {
+    res.send( await readFile('./index.html', 'utf8'));
+})
 
 app.listen(process.env.PORT || 3000, () => console.log(`App available on http://localhost:3000`));
 
